@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default="firefox",
-                     help="Choose the browser: geckodriver, firefox, chrome, ie11, safari")
+                     help="Choose the browser: firefox, chrome,")
 
     parser.addoption('--domain_staging', action='store', default="https://stepik.org",
                      help="Pages on this domain will be considered experimental, and will be compared to production")

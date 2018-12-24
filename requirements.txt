@@ -2,10 +2,6 @@ Appium-Python-Client==0.28
 pytest==3.3.1
 pytest-html==1.17.0
 pytest-metadata==1.5.1
-pytest-rerunfailures==3.1
-pytest-xdist==1.20.1
-requests==2.12.5
 selenium==3.14.0
-waiting==1.4.1
 webium==1.2.1
 Pillow==5.3.0
