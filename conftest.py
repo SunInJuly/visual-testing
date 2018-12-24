@@ -3,8 +3,6 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
-
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -13,10 +11,10 @@ def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default="firefox",
                      help="Choose the browser: geckodriver, firefox, chrome, ie11, safari")
 
-    parser.addoption('--domain_staging', action='store', default="https://dev.stepik.org",
+    parser.addoption('--domain_staging', action='store', default="https://stepik.org",
                      help="Pages on this domain will be considered experimental, and will be compared to production")
 
-    parser.addoption('--domain_production', action='store', default="https://release.stepik.org",
+    parser.addoption('--domain_production', action='store', default="https://stepik.org",
                      help="Pages on this domain will be considered reference, and will be compared to staging")
 
 
@@ -81,12 +79,9 @@ def screenshots_cache(request):
     return request.config.screenshots_cache
 
 
-
 def _gather_screenshot(item, driver, extra):
     request = getattr(item, '_request', None)
-
     pytest_html = item.config.pluginmanager.getplugin('html')
-
     diff = item.config.screenshots_cache['diff'].decode()
     prod = item.config.screenshots_cache['production'].decode()
     staging = item.config.screenshots_cache['staging'].decode()
